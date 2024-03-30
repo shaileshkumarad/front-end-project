@@ -1,0 +1,315 @@
+@import url('https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-straight/css/uicons-solid-straight.css');
+@import url('https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-straight/css/uicons-thin-straight.css');
+
+body {
+  background-color: #b0c0afd6;
+}
+
+#logo {
+  height: 3rem;
+}
+
+.navbar {
+  background-color: rgba(231, 231, 231, 0.707);
+}
+
+.nav-link {
+  font-family: 'Protest Strike', sans-serif;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.dropdown-menu {
+  display: none;
+}
+
+.hero-part {
+  width: 100%;
+}
+
+.heading-text {
+  font-family: 'PT Serif', serif;
+  font-weight: 900;
+  margin: 0;
+}
+
+#location {
+  color: #243300;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+#booking-section {
+  margin: auto;
+  align-self: center;
+  width: 90%;
+  border-radius: 8px;
+  height: auto;
+  background-color: rgba(231, 231, 231, 0.707); 
+  box-shadow: 16px 16px 32px #3c5c36,
+      -16px -16px 32px #3c5c36;
+  box-shadow: 8px 8px 20px #3c5c36
+}
+
+#bookingImage {
+  border-radius: 10px;
+}
+
+h2 {
+  font-family: 'PT Serif', serif;
+  text-align: center;
+  font-weight: 900;
+}
+
+
+.formInput button {
+  padding: 5px 20px;
+  border: unset;
+  border-radius: 10px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: bolder;
+  font-size: 1.2rem;
+  font-family: 'PT Serif', serif;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  overflow: hidden;
+}
+
+
+.formInput button:hover {
+  background-color: #224202;
+  font-size: 1.4rem; 
+  color: #d2f4b1;
+}
+
+
+.card-body h5 {
+  font-family: 'PT Serif', serif;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+.card-body h6 {
+  font-size: 0.8rem;
+  font-family: serif;
+}
+
+.card-text {
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+
+.card button {
+  padding: 5px 20px;
+  border: unset;
+  border-radius: 10px;
+  color: #212121;
+  z-index: 1;
+  background: #90b78dd6;
+  position: relative;
+  font-weight: bolder;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  overflow: hidden;
+}
+
+
+.card button:hover {
+  background-color: #224202;
+  font-size: 1.1rem; 
+  color: #d2f4b1;
+}
+
+.card {
+  background-color: rgba(231, 231, 231, 0.707);
+  box-shadow: 16px 16px 32px #3c5c36,
+      -16px -16px 32px #3c5c36;
+  box-shadow: 8px 8px 20px #3c5c36
+}
+
+.PackagePrice {
+  font-size: large;
+}
+
+.card-body span {
+  color: goldenrod;
+  font-weight: bold;
+  font-size: large;
+}
+
+#package-section .container {
+  padding: 0rem;
+
+}
+
+.col-md-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#price {
+  color: #243300;
+}
+
+
+@media screen and (min-width:481px) {
+  .card {
+      width: 19rem;
+  }
+}
+
+
+@media screen and (min-width: 320px) and (max-width:480px) {
+  .card {
+      width: 21rem;
+      margin-bottom: 1.5rem;
+  }
+}
+
+#gallery {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 5rem;
+}
+
+#gallery .gallery-image {
+  transition: transform 0.2s linear 0s;
+}
+
+#gallery .gallery-image:hover {
+  transform: scale(1.1)
+}
+
+.about-us-img-col, .about-us-desc-col {
+  width: 50%;
+}
+
+.about-us-img {
+  width: 90%;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+#about-us {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto;
+  width: 90%;
+  border-radius: 8px;
+  height: auto;
+  background-color: rgba(231, 231, 231, 0.707); 
+  box-shadow: 16px 16px 32px #3c5c36,
+      -16px -16px 32px #3c5c36;
+  box-shadow: 8px 8px 20px #3c5c36
+}
+
+@media (max-width: 780px) {
+  .about-us-img-col, .about-us-desc-col {
+    width: 100%;
+  }
+  .about-us-img {
+    width: 100%;
+  }
+
+  #about-us {
+    flex-direction: column;
+  }
+
+}
+
+#footer {
+  background-color: rgba(231, 231, 231, 0.707);
+  margin-top: 5rem;
+}
+
+.icons i {
+  color: black;
+  font-size: 2rem;
+  margin-right: 1rem;
+  opacity: 0.7;
+}
+
+.icons {
+  position: relative;
+  right: 10%;
+}
+
+.icons i:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+#registerModalBox, #loginModalBox {
+  border-radius: 8px;
+  background-color: rgba(231, 231, 231, 1);
+  box-shadow: 8px 8px 20px #3c5c36
+}
+
+#register-form, #login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#registerModalLabel, #loginModalLabel {
+  font-family: 'PT Serif', serif;
+  /* font-size: 2rem; */
+}
+
+#registerModal label, #loginModal label  {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
+}
+
+#registerSubmit, #loginSubmit{
+  padding: 8px 20px;
+  border: unset;
+  border-radius: 10px;
+  color: #212121;
+  z-index: 1;
+  background: #90b78dd6;
+  position: relative;
+  font-weight: bolder;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+  letter-spacing: 0.07rem;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  overflow: hidden;
+}
+
+#registerSubmit:hover, #loginSubmit:hover {
+  background-color: #224202;
+  color: #d2f4b1;
+}
+
+#registerLogin {
+  text-decoration: none;
+  margin-left: 0.5rem;
+  color: #224202;
+  font-weight: 700;
+}

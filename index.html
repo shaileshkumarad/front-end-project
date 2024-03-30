@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Levento Travels</title>
+  <link rel="icon" type="image/x-icon" href="Images/favicon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&family=Protest+Strike&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+   
+  <!--Start of Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="./Images/logo.png" alt="logo" id="logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Book</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Packages
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">United States</a></li>
+              <li><a class="dropdown-item" href="#">India</a></li>
+              <li><a class="dropdown-item" href="#">France</a></li>
+              <li><a class="dropdown-item" href="#">Germany</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" aria-disabled="true">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" tabindex="1">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" tabindex="1">About Us</a>
+          </li>
+        </ul>
+        <div class="button-group">
+          <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+          <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!--Start Register button Modal-->
+
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" >
+      <div class="modal-content" id="registerModalBox">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="registerModalLabel">Online Registration</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form id="register-form" onsubmit="return validateForm()">
+            <div class="mb-3">
+              <label for="registerName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="registerName" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="registerNumber" class="form-label">Mobile Number</label>
+              <input type="number" class="form-control" minlength="10" maxlength="12" id="registerNumber" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="registerDob" class="form-label">Date of Birth</label>
+              <input type="date" class="form-control" id="registerDob" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label" >Email ID</label>
+              <input type="text" class="form-control" id="registerEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="registerPass" class="form-label" >Password</label>
+              <input type="password" class="form-control" id="registerPass" minlength="6" maxlength="20" required>
+            </div>
+            
+            <div class="mb-3">
+              <label for="registerGender" class="form-label">Gender</label>
+              <select class="form-select" id="registerGender">
+                <option value="m" selected>Male</option>
+                <option value="f">Female</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="registerSubmit">REGISTER</button>
+          </form>
+          
+          <p class="mt-3">Already have an account? <a href="#" id="registerLogin" data-bs-target="#loginModal" data-bs-toggle="modal" data-bs-dismiss="modal" aria-label="Close">Login</a></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!--End Register button Modal-->
+
+  <!--Start Login button Modal-->
+
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" >
+      <div class="modal-content" id="loginModalBox">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="loginModalLabel">Login Form</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form id="login-form" onsubmit="return validateLoginForm()">
+
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label">Email ID</label>
+              <input type="text" class="form-control" id="loginEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="loginPass" class="form-label">Password</label>
+              <input type="password" class="form-control" id="loginPass" minlength="6" maxlength="20" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="loginSubmit">LOGIN</button>
+          </form>
+          
+          <p class="mt-3">Not a member? <a href="#" data-bs-target="#registerModal" data-bs-toggle="modal" id="registerLogin" data-bs-dismiss="modal" aria-label="Close">Register</a></p>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!--End of Login button Modal-->
+
+  <!--End of Navbar-->
+ 
+  <!--Start of Hero Part-->
+  
+  <div class="hero-part">
+    <div class="container hero">
+      <h2 class="heading-text pt-5">Welcome to Levento Travels</h2>
+      <h1 class="heading-text"><span id="visit-text">Visit</span> <span id="location">United States</span></h1>
+      <!-- <button class="book-button mb-3">Book Now</button> -->
+    </div>
+  </div>
+
+  <!-- End of Hero Part -->
+  
+  <!-- Start of Form Section -->
+  <section id="booking-section">
+    <div class="container mt-2">
+      <div class="row">
+        <div class="col-md-6 col-sm-1 my-4">
+          <img
+            class="img-fluid mx-md-5"
+            id="bookingImage"
+            src="./Images/background-image.jpg"
+            alt="nature-iamge"
+          />
+        </div>
+        <div class="col-md-6 col-sm-1 my-md-5 mb-sm-2">
+          <div class="formInput mx-md-5 mt-md-2 mb-sm-2">
+            <form action="">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="whereTo"
+                  name="whereTo"
+                  list="bookingPlaces"
+                  placeholder="Where To"
+                  required
+                />
+                <datalist id="bookingPlaces">
+                  <option value="India">India</option>
+                  <option value="USA">USA</option>
+                  <option value="Vietnam">Vietnam</option>
+                  <option value="South Africa">South Africa</option>
+                  <option value="Japan">Japan</option>
+                  <option value="China">China</option>
+                </datalist>
+              </div>
+              <div class="mb-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="howMany"
+                  name="howMany"
+                  placeholder="How Many"
+                  min="1"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="fromDate"
+                  name="fromDate"
+                  placeholder="Start Date"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="toDate"
+                  name="toDate"
+                  onclick="getDate()"
+                  placeholder="End Date"
+                  required
+                  disabled
+                />
+              </div>
+              <textarea
+                class="form-control mb-3"
+                rows="3"
+                maxlength="500"
+                minlength="50"
+                id="textArea"
+                placeholder="Enter your name & details"
+                style="resize: none"
+                required
+              ></textarea>
+              <button
+                class="mb-3"
+                type="submit"
+                id="bookButton"
+                onclick="onSubmit()"
+              >
+                Book Now
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- End of Form section -->
+
+  <!-- Star of Package section -->
+
+  <section id="package-section">
+    <h2 class="mt-5">Our Packages</h2>
+    <div class="container mt-3" id="package">
+      <div class="row inner-package">
+        <div class="col-md-4 mt-md-5">
+          <div class="card">
+            <img
+              src="./Images/India.jpg"
+              class="card-img-top"
+              alt="India"
+            />
+            <div class="card-body">
+              <h5 class="card-title">India</h5>
+              <h6 class="card-title">
+                Welcome to the Enchanting Realm of India!
+              </h6>
+
+              <p class="card-text">
+                Embark on a journey to uncover the enchanting secrets of India, where diverse cultures and breathtaking landscapes converge to create an unforgettable tapestry of experiences. 
+              </p>
+              <div class="ratings">
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+              </div>
+              <p class="PackagePrice">Price: <span id="price">$650</span></p>
+
+              <a href="#book"
+                ><button type="submit" class="p">Book Now</button></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mt-md-5">
+          <div class="card">
+            <img
+              src="./Images/USA.jpg"
+              class="card-img-top"
+              alt="USA"
+            />
+            <div class="card-body">
+              <h5 class="card-title">United States of America</h5>
+              <h6 class="card-title">
+                United States: Welcome to the Land of Dreams!
+              </h6>
+              <p class="card-text">
+                Expore iconic landmarks, diverse cultures, and breathtaking landscapes in this vast land. From the towering skyscrapers of New York City to the rugged beauty of the Grand Canyon.
+              </p>
+              <div class="ratings">
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ts-star-sharp-half-stroke"></i>
+              </div>
+              <p class="PackagePrice">Price: <span  id="price">$750</span></p>
+              <a href="#book"
+                ><button type="submit" class="PackageBookNowBtn">
+                  Book Now
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mt-md-5">
+          <div class="card">
+            <img
+              src="./Images/Vietnam.jpg"
+              height="195rem"
+              class="card-img-top"
+              alt="Vietnam"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Vietnam</h5>
+              <h6 class="card-title">
+                Vietnam: Discover the Charms of Vietnam!
+              </h6>
+              <p class="card-text">
+                Journey through the enchanting landscapes of Vietnam. From the bustling streets of Hanoi to the serene Ha Long Bay, It is a unique blend of experiences waiting to be uncovered.
+              </p>
+              <div class="ratings">
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+              </div>
+              <p class="PackagePrice">Price: <span id="price">$550</span></p>
+              <a href="#book"
+                ><button type="submit" class="PackageBookNowBtn">
+                  Book Now
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row inner-package">
+        <div class="col-md-4 mt-md-5">
+          <div class="card">
+            <img
+              src="./Images/France.jpg"
+              class="card-img-top"
+              height="195rem"
+              alt="France"
+            />
+            <div class="card-body">
+              <h5 class="card-title">France</h5>
+              <h6 class="card-title">
+                France: Bienvenue en France!
+              </h6>
+
+              <p class="card-text">
+                Experience the allure of France, where art, history, and gastronomy come together to create a captivating journey. From the romantic streets of Paris to the sun-kissed vineyards of Bordeaux.
+              </p>
+              <div class="ratings">
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+              </div>
+              <p class="PackagePrice">Price: <span id="price">$900</span></p>
+
+              <a href="#book"
+                ><button type="submit" class="p">Book Now</button></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mt-md-5">
+          <div class="card">
+            <img
+              src="./Images/Japan.jpeg"
+              class="card-img-top"
+              height="195rem"
+              alt="Japan"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Japan</h5>
+              <h6 class="card-title">
+                Japan: Welcome to the Land of the Rising Sun!
+              </h6>
+              <p class="card-text">
+                Immerse yourself in the timeless traditions, cutting-edge technology, and natural beauty of Japan. From the ancient temples of Kyoto to the bustling streets of Tokyo, Enjoy a harmonious blend of everything.
+              </p>
+              <div class="ratings">
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ts-star-sharp-half-stroke"></i>
+              </div>
+              <p class="PackagePrice">Price: <span id="price">$750</span></p>
+              <a href="#book"
+                ><button type="submit" class="PackageBookNowBtn">
+                  Book Now
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mt-md-5">
+          <div class="card">
+            <img
+              src="./Images/South Africa.jpg"
+              height="195rem"
+              class="card-img-top"
+              alt="South Africa"
+            />
+            <div class="card-body">
+              <h5 class="card-title">South Africa</h5>
+              <h6 class="card-title">
+                South Africa: Explore the Wonders of South Africa!
+              </h6>
+              <p class="card-text">
+                Embark on an adventure through the breathtaking landscapes, diverse wildlife, and rich cultures of South Africa. We invite you to discover its beauty and hospitality.
+              </p>
+              <div class="ratings">
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+              </div>
+              <p class="PackagePrice">Price: <span id="price">$750</span></p>
+              <a href="#book"
+                ><button type="submit" class="PackageBookNowBtn">
+                  Book Now
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row inner-package">
+        <div class="col-md-4 mt-md-5">
+          <div class="card">
+            <img
+              src="./Images/China.jpg"
+              class="card-img-top"
+              height="195rem"
+              alt="China"
+            />
+            <div class="card-body">
+              <h5 class="card-title">China</h5>
+              <h6 class="card-title">
+                China: Welcome to the Middle Kingdom!
+              </h6>
+
+              <p class="card-text">
+                Delve into the ancient history, vibrant culture, and modern marvels of China. From the Great Wall to the futuristic skyline of Shanghai, China offers a fascinating journey through time and tradition.
+              </p>
+              <div class="ratings">
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+              </div>
+              <p class="PackagePrice">Price: <span id="price">$650</span></p>
+
+              <a href="#book"
+                ><button type="submit" class="p">Book Now</button></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mt-md-5">
+          <div class="card">
+            <img
+              src="./Images/Egypt.jpg"
+              class="card-img-top"
+              height="195rem"
+              alt="Egypt"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Egypt</h5>
+              <h6 class="card-title">
+                Egypt: Experience the Mysteries of Egypt!
+              </h6>
+              <p class="card-text">
+                Uncover the secrets of the ancient pharaohs and sail the legendary Nile River in Egypt. From the majestic pyramids of Giza to the bustling markets of Cairo, We invite you to journey through its timeless wonders.
+              </p>
+              <div class="ratings">
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ts-star-sharp-half-stroke"></i>
+              </div>
+              <p class="PackagePrice">Price: <span id="price">$900</span></p>
+              <a href="#book"
+                ><button type="submit" class="PackageBookNowBtn">
+                  Book Now
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mt-md-5">
+          <div class="card">
+            <img
+              src="./Images/Australia.jpg"
+              height="195rem"
+              class="card-img-top"
+              alt="Australia"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Australia</h5>
+              <h6 class="card-title">
+                Australia: Welcome Down Under!
+              </h6>
+              <p class="card-text">
+                Discover the diverse landscapes, unique wildlife, and laid-back lifestyle of Australia. From the stunning beaches of the Gold Coast to the rugged beauty of the Outback, enjoy endless adventures.
+              </p>
+              <div class="ratings">
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+                <i class="fi fi-ss-star"></i>
+              </div>
+              <p class="PackagePrice">Price: <span id="price">$350</span></p>
+              <a href="#book"
+                ><button type="submit" class="PackageBookNowBtn">
+                  Book Now
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--End of Packages Section-->
+
+  <!-- Starting of Service Section -->
+
+    <div class="container mt-5">
+    <div class="container px-4 py-5" id="icon-grid">
+      <h2 class="pb-1">Our Services</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4 py-5">
+        <div class="col d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-airplane-engines-fill" viewBox="0 0 16 16">
+            <path d="M8 0c-.787 0-1.292.592-1.572 1.151A4.35 4.35 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0"/>
+          </svg>
+          <div>
+            <h4 class="mb-0 fs-4 text-body-emphasis">Transportation Assistance</h4>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
+            <path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
+            <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3z"/>
+          </svg>
+          <div>
+            <h4 class="mb-0 fs-4 text-body-emphasis">Affordable Hotels</h4>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cloud-sun-fill" viewBox="0 0 16 16">
+            <path d="M11.473 11a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5z"/>
+            <path d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708zm1.734 3.374a2 2 0 1 1 3.296 2.198q.3.423.516.898a3 3 0 1 0-4.84-3.225q.529.017 1.028.129m4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377M14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
+          </svg>
+          <div>
+            <h4 class="mb-0 fs-4 text-body-emphasis">Sightseeing Tours</h4>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-arms-up" viewBox="0 0 16 16">
+            <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+            <path d="m5.93 6.704-.846 8.451a.768.768 0 0 0 1.523.203l.81-4.865a.59.59 0 0 1 1.165 0l.81 4.865a.768.768 0 0 0 1.523-.203l-.845-8.451A1.5 1.5 0 0 1 10.5 5.5L13 2.284a.796.796 0 0 0-1.239-.998L9.634 3.84a.7.7 0 0 1-.33.235c-.23.074-.665.176-1.304.176-.64 0-1.074-.102-1.305-.176a.7.7 0 0 1-.329-.235L4.239 1.286a.796.796 0 0 0-1.24.998l2.5 3.216c.317.316.475.758.43 1.204Z"/>
+          </svg>
+          <div>
+            <h4 class="mb-0 fs-4 text-body-emphasis">Tour Guide</h4>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-egg-fried" viewBox="0 0 16 16">
+            <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+            <path d="M13.997 5.17a5 5 0 0 0-8.101-4.09A5 5 0 0 0 1.28 9.342a5 5 0 0 0 8.336 5.109 3.5 3.5 0 0 0 5.201-4.065 3.001 3.001 0 0 0-.822-5.216zm-1-.034a1 1 0 0 0 .668.977 2.001 2.001 0 0 1 .547 3.478 1 1 0 0 0-.341 1.113 2.5 2.5 0 0 1-3.715 2.905 1 1 0 0 0-1.262.152 4 4 0 0 1-6.67-4.087 1 1 0 0 0-.2-1 4 4 0 0 1 3.693-6.61 1 1 0 0 0 .8-.2 4 4 0 0 1 6.48 3.273z"/>
+          </svg>
+          <div>
+            <h4 class="mb-0 fs-4 text-body-emphasis">Culinary Experiences</h4>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-hospital" viewBox="0 0 16 16">
+            <path d="M8.5 5.034v1.1l.953-.55.5.867L9 7l.953.55-.5.866-.953-.55v1.1h-1v-1.1l-.953.55-.5-.866L7 7l-.953-.55.5-.866.953.55v-1.1zM13.25 9a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25zM13 11.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm.25 1.75a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25zm-11-4a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 3 9.75v-.5A.25.25 0 0 0 2.75 9zm0 2a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25zM2 13.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25z"/>
+            <path d="M5 1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 1 1v4h3a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3V3a1 1 0 0 1 1-1zm2 14h2v-3H7zm3 0h1V3H5v12h1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1zm0-14H6v1h4zm2 7v7h3V8zm-8 7V8H1v7z"/>
+          </svg>
+          <div>
+            <h4 class="mb-0 fs-4 text-body-emphasis">Travel Insurance</h4>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ending of Service Section -->
+
+  <!-- Start of Gallery Section-->
+  <section class="gallery-section">
+    <h2 class="pb-2 mt-5 mb-5">Gallery</h2>
+    <div class="container" id="gallery">
+      
+
+      <div class="card">
+        <img
+          src="./Images/Eiffel-Tower France.jpg"
+          height="300rem"
+          class="card-img-top gallery-image"
+          alt="Eiffel-Tower"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Eiffel Tower, France</h5>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="./Images/Taj-Mahal India.jpg"
+          height="300rem"
+          class="card-img-top gallery-image"
+          alt="Taj Mahal"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Taj Mahal, India</h5>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="./Images/Berlin-Cathedral Germany.jpg"
+          height="300rem"
+          class="card-img-top gallery-image"
+          alt="Berlin Cathedral"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Berlin Cathedral, Germany</h5>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="./Images/Asakusa Japan.jpg"
+          height="300rem"
+          class="card-img-top gallery-image"
+          alt=""
+        />
+        <div class="card-body">
+          <h5 class="card-title">Asukasa, Japan</h5>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="./Images/Shanghai-Tower China.jpg"
+          height="300rem"
+          class="card-img-top gallery-image"
+          alt=""
+        />
+        <div class="card-body">
+          <h5 class="card-title">Shanghai Tower, China</h5>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- End of Gallery Section-->
+
+  <!-- Start of About Us Section-->
+
+  <section class="About Us Section">
+    <h2 class="about-us-heading">About us</h2>
+    <div class="container" id="about-us">
+      <div class="about-us-img-col">
+        <img src="./Images/nature-image.jpg" alt="nature-image" class="about-us-img">
+      </div>
+      <div class="about-us-desc-col">
+        <p>Welcome to Levento Travels, your premier travel management company established in 1992. Based in Ranchi, India, we specialize in providing a comprehensive array of services to ensure your journey is nothing short of extraordinary. From transportation assistance to securing affordable accommodations, organizing captivating sightseeing tours, offering knowledgeable tour guides, indulging in culinary experiences, and providing essential travel insurance, we are dedicated to crafting seamless and unforgettable travel experiences for our clients. Trust Levento Travels to make your travel dreams a reality.</p>
+      </div>
+    </div>
+  </section>
+
+  <!--End of About Us Section-->
+
+  <!--Start of Footer Section-->
+  
+  <section id="footer">
+      <div class="container-fluid">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-5 border-top">
+          <div class="col-md-4 d-flex align-items-center company">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+              <img src="Images/logo.png" alt="logo" id="logo">
+            </a>
+            <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Company, Inc. All Rights Reserved.</span>
+          </div>
+          
+          <div class="icons">
+            <ul>
+              <a href="#"><i class="fa-brands fa-facebook"></i></i></a>
+              <a href="#"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></i></a>
+            </ul>
+          </div>
+        </footer>
+      </div>
+  </section>
+
+  <!--End of Footer Section-->
+
+  <!--Script Tag-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.6/dist/jquery.validate.min.js"></script>
+  <script src="index2.js"></script>
+
+</body>
+</html>
